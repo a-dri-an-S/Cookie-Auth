@@ -1,3 +1,5 @@
+import { loginUser } from '../lib/auth';
+
 import { useState } from 'react';
 
 const LoginForm = () => {
@@ -7,7 +9,7 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email, password)
+        loginUser(email, password)
     }
 
 
