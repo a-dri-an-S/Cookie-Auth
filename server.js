@@ -10,6 +10,13 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
     const server = express();
 
+    server.use(express.json());
+
+    server.post('/api/login', (req, res) => {
+        const { email, password } = req.body;
+        authenticate(email, password);
+    });
+
     server.get("*", (req, res) => {
         return handle(req, res);
     });
