@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUserProfile } from '../lib/auth';
+import Layout from '../components/Layout';
 
 const Profile = () => {
 
@@ -11,7 +12,9 @@ const Profile = () => {
     }, [])
 
     return ( 
-        <pre>{JSON.stringify(user, null, 2)}</pre>
+        <Layout title="profile">
+            <pre>{JSON.stringify(user, null, 2)}</pre>
+        </Layout>
     );
 }
 
