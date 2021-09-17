@@ -1,5 +1,5 @@
 import { loginUser } from '../lib/auth';
-
+import Router from 'next/router';
 import { useState } from 'react';
 
 const LoginForm = () => {
@@ -10,6 +10,9 @@ const LoginForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         loginUser(email, password)
+        .then(() => {
+            Router.push("/profile")
+        })
     }
 
 
