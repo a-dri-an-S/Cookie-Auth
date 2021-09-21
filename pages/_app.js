@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
 
 MyApp.getInitialProps = async (appContext) => {
     const appProps = await App.getInitialProps(appContext);
-    const user = getServerSideToken(appContext.ctx.req)
+    const user = getServerSideToken(appContext.ctx.req);
 
     return { ...appProps, ...user }
 }

@@ -1,21 +1,35 @@
 import Link from 'next/link';
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, children, auth }) => {
+
+    const { user = {} } = auth || {};
+    console.log( user )
+
     return ( 
         <div className="root">
             <nav className="navbar">
-                <span>Welcome, <strong>Guest</strong></span>
+                <span>Welcome, <strong>{ user.name || "Guest"}</strong></span>
                 <div>
                     <Link href="/">
                         <a>Home</a>
                     </Link>
+
+                    {user.email ? (
+                    // Auth Navigation
+                    <>
                     <Link href="/profile">
                         <a>Profile</a>
                     </Link>
                     <button>Logout</button>
+                    </>
+                    ) : (
+                    // UnAuth Navigation
                     <Link href="/login">
                         <a>Login</a>
                     </Link>
+                        )
+                    }
+
                 </div>
             </nav>
 
