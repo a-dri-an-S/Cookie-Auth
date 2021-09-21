@@ -18,6 +18,6 @@ const Profile = (props) => {
     );
 }
 
-Profile.getInitialProps = authInitialProps();
+Profile.getInitialProps = authInitialProps(true);
 
 export default Profile;
