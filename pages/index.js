@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { authInitialProps } from '../lib/auth';
 
 const Index = (props) => {
-    console.log(props)
+
 
     return ( 
         <Layout title="Home" {...props}>
